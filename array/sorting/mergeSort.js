@@ -1,24 +1,24 @@
 const mergeSort = (nums) => {
-  sortSubArray(nums, 0, nums.length - 1);
+  sort(nums, 0, nums.length - 1);
 }
 
-const sortSubArray = (nums, low, high) => {
+const sort = (nums, low, high) => {
   if (low >= high) return;
 
   const mid = low + Math.floor((high - low) / 2);
-  sortSubArray(nums, low, mid);
-  sortSubArray(nums, mid + 1, high);
+  sort(nums, low, mid);
+  sort(nums, mid + 1, high);
   merge(nums, low, mid, high);
 }
 
 const merge = (nums, low, mid, high) => {
   let i = low, j = mid + 1;
-
+  // Copy elements to an auxillary array
   const aux = [];
   for (let k = low; k <= high; k++) {
     aux[k] = nums[k];
   }
-
+  // Use two pointers to merge two sorted arrays
   for (let k = low; k <= high; k++) {
     if (i > mid) {
       nums[k] = aux[j++];
