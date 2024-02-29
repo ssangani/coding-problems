@@ -1,0 +1,22 @@
+{
+  "name": "coding-problems",
+  "version": "1.0.0",
+  "description": "Coding Problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssangani/coding-problems.git"
+  },
+  "author": "ssangani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssangani/coding-problems/issues"
+  },
+  "homepage": "https://github.com/ssangani/coding-problems#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
