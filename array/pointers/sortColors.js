@@ -13,12 +13,11 @@
  * Example 2:
  * Input: nums = [2,0,1]
  * Output: [0,1,2]
- * 
- * NOTE: Any sorting algo works. Below version is inspired by quick sort
- * since there are only two pivots. Also see counting sort
  * @param {array} nums 
  */
 const sortColors = (nums) => {
+  // Any sorting algo works. Below version is inspired by quick sort
+  // since there are only two pivots. Also see counting sort
   const pivots = [1,2];
   let start = 0;
   for (const pivot of pivots) {
@@ -41,4 +40,31 @@ const partition = (nums, pivot, start) => {
   }
   // Return end index of sub-array containing elements smaller than pivot
   return ++i;
+}
+
+/**
+ * An alternate version specifically for Dutch national flag problem
+ * @param {array} nums 
+ */
+const dutchNationalFlag = (nums) => {
+  const pivot = 1;
+  let start = 0, cursor = 0, end = nums.length - 1;
+  while (cursor <= end) {
+    if (nums[cursor] < pivot) {
+      swap(nums, cursor, start);
+      cursor++;
+      start++;
+    } else if (nums[cursor] == pivot) {
+      cursor++;
+    } else {
+      swap(nums, cursor, end);
+      end--;
+    }
+  }
+}
+
+const swap = (nums, i, j) => {
+  const t = nums[i];
+  nums[i] = nums[j];
+  nums[j] = t;
 }
