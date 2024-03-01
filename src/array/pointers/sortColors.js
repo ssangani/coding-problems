@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: "off"*/
+
 /**
  * Given an array nums with n objects colored red, white, or blue,
  * sort them in-place so that objects of the same color are adjacent,
@@ -23,7 +25,7 @@ const sortColors = (nums) => {
   for (const pivot of pivots) {
     start = partition(nums, pivot, start);
   }
-}
+};
 
 const partition = (nums, pivot, start) => {
   if (start >= nums.length) return;
@@ -40,7 +42,7 @@ const partition = (nums, pivot, start) => {
   }
   // Return end index of sub-array containing elements smaller than pivot
   return ++i;
-}
+};
 
 /**
  * An alternate version specifically for Dutch national flag problem
@@ -61,12 +63,12 @@ const dutchNationalFlag = (nums) => {
       end--;
     }
   }
-}
+};
 
 const swap = (nums, i, j) => {
   const t = nums[i];
   nums[i] = nums[j];
   nums[j] = t;
-}
+};
 
 module.exports = sortColors;

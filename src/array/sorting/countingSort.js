@@ -13,4 +13,6 @@ const countingSort = (nums) => {
       map[n]--;
     }
   }
-}
+};
+
+module.exports = countingSort;

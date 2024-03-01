@@ -13,4 +13,6 @@ const selectionSort = (nums) => {
     nums[i] = nums[min];
     nums[min] = t;
   }
-}
+};
+
+module.exports = selectionSort;

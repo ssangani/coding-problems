@@ -1,3 +1,5 @@
+/* eslint no-undef: "off"*/
+
 const sortColors = require('./sortColors');
 const countSubstrings = require('./palindromicSubstrings');
 const mergeSortedArrays = require('./mergeSortedArrays');
@@ -9,17 +11,17 @@ describe.each([
   test(`results in ${expected}`, () => {
     sortColors(nums);
     expect(nums).toStrictEqual(expected);
-  })
+  });
 });
 
 describe.each([
-  { s: "abc", expected: 3 },
-  { s: "aaa", expected: 6 },
+  { s: 'abc', expected: 3 },
+  { s: 'aaa', expected: 6 },
 ])('countSubstrings($s)', ({ s, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = countSubstrings(s);
     expect(actual).toStrictEqual(expected);
-  })
+  });
 });
 
 describe.each([
@@ -48,5 +50,5 @@ describe.each([
   test(`results in ${expected}`, () => {
     mergeSortedArrays(nums1, m, nums2, n);
     expect(nums1).toStrictEqual(expected);
-  })
+  });
 });

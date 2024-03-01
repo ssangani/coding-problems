@@ -23,27 +23,27 @@
 const lengthOfLongestSubstring = (s) => {
   let map = {};
   let start = 0,
-      cursor = 0,
-      maxLen = 0;
+    cursor = 0,
+    maxLen = 0;
 
   while (cursor < s.length) {
-      const c = s[cursor];
-      if (!map[c]) {
-          map[c] = 0;
-      }
-      map[c]++;
+    const c = s[cursor];
+    if (!map[c]) {
+      map[c] = 0;
+    }
+    map[c]++;
 
-      while (map[c] > 1) {
-          const cs = s[start];
-          map[cs]--;
-          start++;
-      }
+    while (map[c] > 1) {
+      const cs = s[start];
+      map[cs]--;
+      start++;
+    }
 
-      if (maxLen < (cursor - start)) {
-          maxLen = cursor - start;
-      }
+    if (maxLen < (cursor - start)) {
+      maxLen = cursor - start;
+    }
 
-      cursor++;
+    cursor++;
   }
 
   return s?.length > 0 ? maxLen + 1 : 0;

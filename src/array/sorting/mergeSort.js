@@ -1,6 +1,6 @@
 const mergeSort = (nums) => {
   sort(nums, 0, nums.length - 1);
-}
+};
 
 const sort = (nums, low, high) => {
   if (low >= high) return;
@@ -9,7 +9,7 @@ const sort = (nums, low, high) => {
   sort(nums, low, mid);
   sort(nums, mid + 1, high);
   merge(nums, low, mid, high);
-}
+};
 
 const merge = (nums, low, mid, high) => {
   let i = low, j = mid + 1;
@@ -30,4 +30,6 @@ const merge = (nums, low, mid, high) => {
       nums[k] = aux[j++];
     }
   }
-}
+};
+
+module.exports = mergeSort;

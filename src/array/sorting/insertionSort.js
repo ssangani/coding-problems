@@ -11,4 +11,6 @@ const insertionSort = (nums) => {
       j--;
     }
   }
-}
+};
+
+module.exports = insertionSort;

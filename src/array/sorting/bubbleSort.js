@@ -12,4 +12,6 @@ const bubbleSort = (nums) => {
     // With right-most element in correct position, re-apply bubbling
     // to remaining elements
   }
-}
+};
+
+module.exports = bubbleSort;

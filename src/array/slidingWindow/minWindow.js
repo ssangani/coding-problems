@@ -28,18 +28,18 @@ const minWindow = (s, t) => {
   // Increment counter for each character in t
   const map = {};
   for (const c of t) {
-      if (!map[c]) {
-          map[c] = 1;
-      } else {
-          map[c]++;
-      }
+    if (!map[c]) {
+      map[c] = 1;
+    } else {
+      map[c]++;
+    }
   }
 
   let start = 0,
-      minStart = 0,
-      minLen = Number.MAX_VALUE,
-      counter = t.length,
-      cursor = 0;
+    minStart = 0,
+    minLen = Number.MAX_VALUE,
+    counter = t.length,
+    cursor = 0;
 
   while (cursor < s.length) {
     const c = s[cursor];
@@ -74,8 +74,8 @@ const minWindow = (s, t) => {
   }
 
   return minLen == Number.MAX_VALUE
-    ? ""
+    ? ''
     : s.substring(minStart, minStart + minLen);
-}
+};
 
 module.exports = minWindow;

@@ -21,22 +21,22 @@
  */
 const minSubArrayLen = (target, nums) => {
   let start = 0,
-      cursor = 0,
-      sum = 0,
-      minLen = -1;
+    cursor = 0,
+    sum = 0,
+    minLen = -1;
 
   while (cursor < nums.length) {
-      sum += nums[cursor];
+    sum += nums[cursor];
 
-      while (sum >= target) {
-          if (minLen == -1 || minLen > (cursor - start + 1)) {
-              minLen = cursor - start + 1;
-          }
-          sum -= nums[start];
-          start++;
+    while (sum >= target) {
+      if (minLen == -1 || minLen > (cursor - start + 1)) {
+        minLen = cursor - start + 1;
       }
+      sum -= nums[start];
+      start++;
+    }
 
-      cursor++;
+    cursor++;
   }
 
   return minLen == -1 ? 0 : minLen;

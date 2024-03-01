@@ -29,24 +29,24 @@ const countSubstrings = (s) => {
    */
   let res = 0;
   for (let i = 0; i < s.length; i++) {
-      // Expand string around i as long as left & right end characters are same
-      let l = i, r = i, count = 0;
-      while (l >= 0 && r < s.length && s[l] == s[r]) {
-          count++;
-          l--;
-          r++;
-      }
-      res += count;
+    // Expand string around i as long as left & right end characters are same
+    let l = i, r = i, count = 0;
+    while (l >= 0 && r < s.length && s[l] == s[r]) {
+      count++;
+      l--;
+      r++;
+    }
+    res += count;
 
-      // Expand string around i & i + 1 as long as left & right end characters are same
-      count = 0;
-      l = i, r = i + 1;
-      while (l >= 0 && r < s.length && s[l] == s[r]) {
-          count++;
-          l--;
-          r++;
-      }
-      res += count;
+    // Expand string around i & i + 1 as long as left & right end characters are same
+    count = 0;
+    l = i, r = i + 1;
+    while (l >= 0 && r < s.length && s[l] == s[r]) {
+      count++;
+      l--;
+      r++;
+    }
+    res += count;
   }
 
   return res;
