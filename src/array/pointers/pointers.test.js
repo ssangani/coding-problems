@@ -3,6 +3,7 @@
 const sortColors = require('./sortColors');
 const countSubstrings = require('./palindromicSubstrings');
 const mergeSortedArrays = require('./mergeSortedArrays');
+const playerCanAdvance = require('./playerCanAdvance');
 
 describe.each([
   { nums: [2,0,2,1,1,0], expected: [0,0,1,1,2,2] },
@@ -50,5 +51,25 @@ describe.each([
   test(`results in ${expected}`, () => {
     mergeSortedArrays(nums1, m, nums2, n);
     expect(nums1).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    boardgame: [3,3,1,0,2,0,1],
+    expected: true
+  },
+  {
+    boardgame: [3,2,0,0,2,0,1],
+    expected: false
+  },
+  {
+    boardgame: [2,4,1,1,0,2,3],
+    expected: true
+  },
+])('playerCanAdvance($boardgame)', ({ boardgame, expected }) => {
+  test(`results in ${expected}`, () => {
+    const actual = playerCanAdvance(boardgame);
+    expect(actual).toStrictEqual(expected);
   });
 });
