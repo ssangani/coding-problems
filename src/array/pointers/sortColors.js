@@ -68,3 +68,5 @@ const swap = (nums, i, j) => {
   nums[i] = nums[j];
   nums[j] = t;
 }
+
+module.exports = sortColors;

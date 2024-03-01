@@ -51,3 +51,5 @@ const countSubstrings = (s) => {
 
   return res;
 };
+
+module.exports = countSubstrings;

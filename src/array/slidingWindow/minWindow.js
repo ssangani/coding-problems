@@ -77,3 +77,5 @@ const minWindow = (s, t) => {
     ? ""
     : s.substring(minStart, minStart + minLen);
 }
+
+module.exports = minWindow;

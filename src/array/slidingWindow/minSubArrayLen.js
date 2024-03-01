@@ -19,7 +19,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var minSubArrayLen = function(target, nums) {
+const minSubArrayLen = (target, nums) => {
   let start = 0,
       cursor = 0,
       sum = 0,
@@ -41,3 +41,5 @@ var minSubArrayLen = function(target, nums) {
 
   return minLen == -1 ? 0 : minLen;
 };
+
+module.exports = minSubArrayLen;
