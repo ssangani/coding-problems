@@ -4,6 +4,8 @@ const sortColors = require('./sortColors');
 const countSubstrings = require('./palindromicSubstrings');
 const mergeSortedArrays = require('./mergeSortedArrays');
 const playerCanAdvance = require('./playerCanAdvance');
+const findOneTradeMaxProfit = require('./findOneTradeMaxProfit');
+const findTwoTradeMaxProfit = require('./findTwoTradeMaxProfit');
 
 describe.each([
   { nums: [2,0,2,1,1,0], expected: [0,0,1,1,2,2] },
@@ -70,6 +72,24 @@ describe.each([
 ])('playerCanAdvance($boardgame)', ({ boardgame, expected }) => {
   test(`results in ${expected}`, () => {
     const actual = playerCanAdvance(boardgame);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  { prices: [310,315,275,295,260,270, 290, 230, 255,250], expected: 30 },
+])('findOneTradeMaxProfit($prices)', ({ prices, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = findOneTradeMaxProfit(prices);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  { prices: [12,11,13,9,12,8,14,13,15], expected: 10 },
+])('findTwoTradeMaxProfit($prices)', ({ prices, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = findTwoTradeMaxProfit(prices);
     expect(actual).toStrictEqual(expected);
   });
 });
