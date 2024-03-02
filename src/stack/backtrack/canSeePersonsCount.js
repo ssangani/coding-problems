@@ -29,48 +29,26 @@
  * @param {number[]} heights
  * @return {number[]}
  */
-var canSeePersonsCount = function(heights) {
+const canSeePersonsCount = (heights) => {
   const res = [];
   const n = heights.length;
+  let max, ct;
   for (let i = 0; i < n; i++) {
-    let ct = 0;
-    for (let j = i + 1; j < n; j++) {
-      if (canSee(heights, i, j)) {
+    max = Number.MIN_VALUE;
+    ct = 0;
+    /**
+       * Start from next element and increment counter for each
+       * new taller person until jth person is taller than ith person.
+       */
+    for (let j = i + 1; j < n && max < heights[i]; j++) {
+      if (heights[j] > max) {
+        max = heights[j];
         ct++;
       }
     }
     res[i] = ct;
   }
-  /*
-  let min, max, ct;
-  for (let i = 0; i < n; i++) {
-      max = Number.MIN_VALUE;
-      ct = 0;
-      for (let j = i + 1; j < n; j++) {
-          min = Math.min(heights[i], heights[j]);
-          console.log(`i:${i}, j:${j}, h[i]: ${heights[i]}, h[j]:${heights[j]}, min:${min}, max:${max}}`)
-          if (heights[j] > max) {
-              ct++;
-              max = heights[j];
-          } else if (heights[j] < max && heights[i] < max) {
-              console.log(`break i:${i}, j:${j}`);
-              break;
-          }
-      }
-      res[i] = ct;
-  }
-  */
   return res;
-};
-
-const canSee = (heights, i, j) => {
-  let max = 0;
-  const min = Math.min(heights[i], heights[j]);
-  for (let k = i + 1; k < j; k++) {
-    max = Math.max(max, heights[k]);
-    if (max > min) return false;
-  }
-  return max < min;
 };
 
 module.exports = canSeePersonsCount;
