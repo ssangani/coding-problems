@@ -32,21 +32,47 @@
 const canSeePersonsCount = (heights) => {
   const res = [];
   const n = heights.length;
-  let max, ct;
+  // Approach 1: Brute force for every (i,j) combination
+  // res[i] = count(max(h[i+1,...,j-1]) < min(h[i], h[j]))
+  // Time complexity: O(n^3)
+
+  // Approach 2: For every i, incremement counter for each
+  // new taller person until jth person is taller than ith person.
+  // Time complexity: O(n^2)
+  /*
+  let max, count;
   for (let i = 0; i < n; i++) {
     max = Number.MIN_VALUE;
-    ct = 0;
-    /**
-       * Start from next element and increment counter for each
-       * new taller person until jth person is taller than ith person.
-       */
+    count = 0;
     for (let j = i + 1; j < n && max < heights[i]; j++) {
       if (heights[j] > max) {
         max = heights[j];
-        ct++;
+        count++;
       }
     }
-    res[i] = ct;
+    res[i] = count;
+  }
+  */
+
+  // Approach 3: Use a decreasing mono-stack
+  // Time complexity: O(n)
+  const stack = [];
+  for (let i = 0; i < n; i++) {
+    // Initialize counter to zero
+    res[i] = 0;
+    // Keep popping people shorter than ith person from stack, since they
+    // won't be able to see people beyond i anyway
+    while (stack.length > 0 && heights[stack[stack.length - 1]] < heights[i]) {
+      const idx = stack.pop();
+      res[idx]++;
+    }
+    // Increment the counter for the last person in stack who is taller
+    // than ith person
+    if (stack.length > 0) {
+      res[stack[stack.length - 1]]++;
+    }
+    // Add last person to stack
+    stack.push(i);
   }
   return res;
 };
