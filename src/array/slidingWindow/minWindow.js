@@ -52,15 +52,13 @@ const minWindow = (s, t) => {
     }
     // Decrement counter for cursor
     map[c]--;
-    // Move the cursor
-    cursor++;
 
     // If all the characters in t are found in the substring, then move the
     // left-most pointer until one of the chars in t is dropped
     while (counter == 0) {
       // Update if current sub-string is smaller than previous one
-      if (minLen > (cursor - start)) {
-        minLen = cursor - start;
+      if (minLen > (cursor - start + 1)) {
+        minLen = cursor - start + 1;
         minStart = start;
       }
 
@@ -71,6 +69,9 @@ const minWindow = (s, t) => {
       }
       start++;
     }
+
+    // Move the cursor
+    cursor++;
   }
 
   return minLen == Number.MAX_VALUE
