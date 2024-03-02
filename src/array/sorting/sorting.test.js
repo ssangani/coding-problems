@@ -58,6 +58,14 @@ describe.each([
     intervals: [[1,4],[0,4]],
     expected: [[0,4]]
   },
+  {
+    intervals: [[1,4],[1,5]],
+    expected: [[1,5]]
+  },
+  {
+    intervals: [[1,4],[2,3]],
+    expected: [[1,4]]
+  },
 ])('mergeIntervals($intervals)', ({ intervals, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = mergeIntervals(intervals);
