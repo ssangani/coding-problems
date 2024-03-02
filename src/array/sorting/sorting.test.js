@@ -7,6 +7,7 @@ const mergeSort = require('./mergeSort');
 const quickSort = require('./quickSort');
 const countingSort = require('./countingSort');
 const mergeIntervals = require('./mergeIntervals');
+const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
 
 describe.each([
   {
@@ -72,4 +73,28 @@ describe.each([
     expect(actual).toStrictEqual(expected);
   });
 });
+
+describe.each([
+  {
+    intervals: [[1,2],[2,3],[3,4],[1,3]],
+    expected: 1
+  },
+  {
+    intervals: [[1,2],[1,2],[1,2]],
+    expected: 2
+  },
+  {
+    intervals: [[1,2],[2,3]],
+    expected: 0
+  }
+])('eraseOverlapIntervals($intervals)', ({ intervals, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = eraseOverlapIntervals(intervals);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+
+
+
 
