@@ -11,8 +11,13 @@ describe.each([
   { nums: [2,0,2,1,1,0], expected: [0,0,1,1,2,2] },
   { nums: [2,0,1], expected: [0,1,2] },
 ])('sortColors($nums)', ({ nums, expected }) => {
-  test(`results in ${expected}`, () => {
-    sortColors(nums);
+  test(`sortAnyColors results in ${expected}`, () => {
+    sortColors.sortAnyColors(nums);
+    expect(nums).toStrictEqual(expected);
+  });
+
+  test(`dutchNationalFlag results in ${expected}`, () => {
+    sortColors.dutchNationalFlag(nums);
     expect(nums).toStrictEqual(expected);
   });
 });

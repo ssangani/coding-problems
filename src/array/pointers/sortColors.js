@@ -1,5 +1,3 @@
-/* eslint no-unused-vars: "off"*/
-
 /**
  * Given an array nums with n objects colored red, white, or blue,
  * sort them in-place so that objects of the same color are adjacent,
@@ -17,7 +15,7 @@
  * Output: [0,1,2]
  * @param {array} nums 
  */
-const sortColors = (nums) => {
+const sortAnyColors = (nums) => {
   // Any sorting algo works. Below version is inspired by quick sort
   // since there are only two pivots. Also see counting sort
   const pivots = [1,2];
@@ -71,4 +69,8 @@ const swap = (nums, i, j) => {
   nums[j] = t;
 };
 
+const sortColors = {
+  sortAnyColors,
+  dutchNationalFlag
+};
 module.exports = sortColors;
