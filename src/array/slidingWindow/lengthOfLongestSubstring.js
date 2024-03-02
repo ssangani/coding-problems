@@ -39,14 +39,14 @@ const lengthOfLongestSubstring = (s) => {
       start++;
     }
 
-    if (maxLen < (cursor - start)) {
-      maxLen = cursor - start;
+    if (maxLen < (cursor - start + 1)) {
+      maxLen = cursor - start + 1;
     }
 
     cursor++;
   }
 
-  return s?.length > 0 ? maxLen + 1 : 0;
+  return maxLen;
 };
 
 module.exports = lengthOfLongestSubstring;
