@@ -10,7 +10,6 @@ const sortContinuousRange = (nums) => {
   for (let i = 0; i < nums.length; i++) {
     min = Math.min(min, nums[i]);
   }
-  console.log('min: ', min);
 
   let pos, i = 0;
   while (i < nums.length) {
@@ -22,7 +21,6 @@ const sortContinuousRange = (nums) => {
       // Item is already in correct place
       i++;
     }
-    console.log(`i: ${i}, pos: ${pos}, nums: `, nums);
   }
 };
 
