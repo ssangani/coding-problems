@@ -1,6 +1,9 @@
 const selectionSort = (nums) => {
-  let t;
-  // For each position, find smallest element in right sub-array and swap
+  /**
+   * Simplest technique where you start from left-most element,
+   * find smallest element in right sub-array, swap, and repeat
+   * process for each element until you reach end
+   */
   for (let i = 0; i < nums.length; i++) {
     let min = i;
     for (let j = i + 1; j < nums.length; j++) {
@@ -9,9 +12,7 @@ const selectionSort = (nums) => {
       }
     }
 
-    t = nums[i];
-    nums[i] = nums[min];
-    nums[min] = t;
+    [nums[i], nums[min]] = [nums[min], nums[i]];
   }
 };
 

@@ -11,16 +11,14 @@ const sort = (nums, low, high) => {
 };
 
 const partition = (nums, low, high) => {
-  let i = low - 1, t;
+  let i = low - 1;
   // Choose last element as pivot
   const pivot = nums[high];
   // Push elements smaller than pivot to left subarray
   for (let j = low; j < high; j++) {
     if (nums[j] < pivot) {
       i++;
-      t = nums[i];
-      nums[i] = nums[j];
-      nums[j] = t;
+      [nums[i], nums[j]] = [nums[j], nums[i]];
     }
   }
   // Swap pivot and end of left subarray

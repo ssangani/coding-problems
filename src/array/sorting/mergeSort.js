@@ -1,4 +1,11 @@
 const mergeSort = (nums) => {
+  /**
+   * 1. Merging two sorted arrays can be done in O(m + n) time
+   * 2. You can split array into two halves recursively until you
+   * reach array of size 2, merge the halves recursively, repeating
+   * process O(logN) times.
+   * 3. It does require extra space 
+   */
   sort(nums, 0, nums.length - 1);
 };
 

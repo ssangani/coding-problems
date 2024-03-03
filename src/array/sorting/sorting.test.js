@@ -6,6 +6,8 @@ const bubbleSort = require('./bubbleSort');
 const mergeSort = require('./mergeSort');
 const quickSort = require('./quickSort');
 const countingSort = require('./countingSort');
+const cycleSort = require('./cycleSort');
+const sortContinuousRange = require('./sortContinuousRange');
 const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
 
@@ -13,6 +15,14 @@ describe.each([
   {
     nums: [3,2,1,1,5,4,9,8,10,6,7],
     expected: [1,1,2,3,4,5,6,7,8,9,10]
+  },
+  {
+    nums: [3,2,1,5,4,9,8,10,6,7],
+    expected: [1,2,3,4,5,6,7,8,9,10]
+  },
+  {
+    nums: [5,4,9,10,14,7,1,0,3,2],
+    expected: [0,1,2,3,4,5,7,9,10,14]
   },
 ])('sort($nums)', ({ nums, expected }) => {
   test(`selectionSort returns ${expected}`, () => {
@@ -42,6 +52,31 @@ describe.each([
 
   test(`countingSort returns ${expected}`, () => {
     countingSort(nums);
+    expect(nums).toStrictEqual(expected);
+  });
+
+  test(`cycleSort returns ${expected}`, () => {
+    cycleSort(nums);
+    expect(nums).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [4,3,5,2,1],
+    expected: [1,2,3,4,5]
+  },
+  {
+    nums: [0,5,1,3,4,2],
+    expected: [0,1,2,3,4,5]
+  },
+  {
+    nums: [75,77,74,71,72,73,79,76,78],
+    expected: [71,72,73,74,75,76,77,78,79]
+  },
+])('sortContinuousRange($nums)', ({ nums, expected }) => {
+  test(`returns ${expected}`, () => {
+    sortContinuousRange(nums);
     expect(nums).toStrictEqual(expected);
   });
 });
