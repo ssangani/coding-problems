@@ -43,13 +43,10 @@ const minWindow = (s, t) => {
 
   while (cursor < s.length) {
     const c = s[cursor];
-    if (map[c] > 0) {
-      // Decrement counter if cursor was present in t 
-      counter--;
-    } else if (!map[c]) {
-      // Add char to map if missing
-      map[c] = 0;
-    }
+    // Initialize if missing
+    if (!map[c]) map[c] = 0;
+    // Decrement counter if cursor was present in t 
+    if (map[c] > 0) counter--;
     // Decrement counter for cursor
     map[c]--;
 
