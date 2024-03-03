@@ -1,4 +1,4 @@
-const cycleSort = (nums) => {
+const accepted = (nums) => {
   const n = nums.length;
   let item, pos;
   for (let i = 0; i < n - 2; i++) {
@@ -38,4 +38,27 @@ const cycleSort = (nums) => {
   }
 };
 
-module.exports = cycleSort;
+const simplifed = (nums) => {
+  const n = nums.length;
+  let i = 0, pos;
+  while (i < n) {
+    pos = i;
+    for (let j = i+1; j < n; j++) {
+      if (nums[i] < nums[i]) pos++;
+    }
+
+    if (pos == i) {
+      i++;
+      continue;
+    }
+
+    [nums[i],nums[pos]] = [nums[pos, nums[i]]];
+
+    i++;
+  }
+};
+
+module.exports = {
+  accepted,
+  simplifed
+};

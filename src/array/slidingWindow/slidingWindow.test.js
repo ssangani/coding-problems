@@ -1,5 +1,4 @@
 /* eslint no-undef: "off"*/
-
 const minWindow = require('./minWindow');
 const minSubArrayLen = require('./minSubArrayLen');
 const lengthOfLongestSubstring = require('./lengthOfLongestSubstring');

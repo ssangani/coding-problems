@@ -1,5 +1,4 @@
 /* eslint no-undef: "off"*/
-
 const dailyTemperatures = require('./dailyTemperatures');
 const canSeePersonsCount = require('./canSeePersonsCount');
 

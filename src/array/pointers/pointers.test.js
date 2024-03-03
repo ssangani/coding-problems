@@ -1,5 +1,4 @@
 /* eslint no-undef: "off"*/
-
 const sortColors = require('./sortColors');
 const countSubstrings = require('./palindromicSubstrings');
 const mergeSortedArrays = require('./mergeSortedArrays');

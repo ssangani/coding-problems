@@ -1,5 +1,4 @@
 /* eslint no-undef: "off"*/
-
 const selectionSort = require('./selectionSort');
 const insertionSort = require('./insertionSort');
 const bubbleSort = require('./bubbleSort');
@@ -55,8 +54,13 @@ describe.each([
     expect(nums).toStrictEqual(expected);
   });
 
-  test(`cycleSort returns ${expected}`, () => {
-    cycleSort(nums);
+  test(`cycleSort.accepted returns ${expected}`, () => {
+    cycleSort.accepted(nums);
+    expect(nums).toStrictEqual(expected);
+  });
+
+  test(`cycleSort.simplifed returns ${expected}`, () => {
+    cycleSort.simplifed(nums);
     expect(nums).toStrictEqual(expected);
   });
 });
