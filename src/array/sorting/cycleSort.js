@@ -52,9 +52,7 @@ const simplifed = (nums) => {
       continue;
     }
 
-    [nums[i],nums[pos]] = [nums[pos, nums[i]]];
-
-    i++;
+    [nums[i], nums[pos]] = [nums[pos, nums[i]]];
   }
 };
 
