@@ -34,7 +34,12 @@ const productExceptSelf = (nums) => {
    */
 
   /**
-   * Approach 3: res[i] = prod[0,i-1] * suff[i+1,N-1].
+   * Approach 3: res[i] = pref[0,i-1] * suff[i+1,N-1].
+   * Build prefix product array as pref[i] = pref[i - 1] * nums[i - 1]
+   * from 1 to N - 1
+   * Build prefix product array as suff[i] = suff[i + 1] * nums[i + 1]
+   * from N - 2 to 0
+   * Then res[i] = pref[i] * suff[i]
    * O(N) time complexity with help of two O(N) arrays
    */
 

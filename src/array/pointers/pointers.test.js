@@ -5,6 +5,8 @@ const mergeSortedArrays = require('./mergeSortedArrays');
 const playerCanAdvance = require('./playerCanAdvance');
 const findOneTradeMaxProfit = require('./findOneTradeMaxProfit');
 const findTwoTradeMaxProfit = require('./findTwoTradeMaxProfit');
+const maxArea = require('./maxArea');
+const searchInRotatedSortedArray = require('./searchInRotatedSortedArray');
 
 describe.each([
   { nums: [2,0,2,1,1,0], expected: [0,0,1,1,2,2] },
@@ -94,6 +96,45 @@ describe.each([
 ])('findTwoTradeMaxProfit($prices)', ({ prices, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = findTwoTradeMaxProfit(prices);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    height: [1,8,6,2,5,4,8,3,7],
+    expected: 49
+  },
+  {
+    height: [1,1],
+    expected: 1
+  },
+])('maxArea($height)', ({ height, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = maxArea(height);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [4,5,6,7,0,1,2],
+    target: 0,
+    expected: 4
+  },
+  {
+    nums: [4,5,6,7,0,1,2],
+    target: 3,
+    expected: -1
+  },
+  {
+    nums: [1],
+    target: 0,
+    expected: -1
+  },
+])('searchInRotatedSortedArray($nums, $target)', ({ nums, target, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = searchInRotatedSortedArray(nums, target);
     expect(actual).toStrictEqual(expected);
   });
 });

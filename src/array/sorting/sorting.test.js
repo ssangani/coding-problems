@@ -9,6 +9,7 @@ const cycleSort = require('./cycleSort');
 const sortContinuousRange = require('./sortContinuousRange');
 const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
+const firstMissingPositive = require('./firstMissingPositive');
 
 describe.each([
   {
@@ -129,6 +130,26 @@ describe.each([
 ])('eraseOverlapIntervals($intervals)', ({ intervals, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = eraseOverlapIntervals(intervals);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [1,2,0],
+    expected: 3
+  },
+  {
+    nums: [3,4,-1,1],
+    expected: 2
+  },
+  {
+    nums: [7,8,9,11,12],
+    expected: 1
+  }
+])('firstMissingPositive($nums)', ({ nums, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = firstMissingPositive(nums);
     expect(actual).toStrictEqual(expected);
   });
 });
