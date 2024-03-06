@@ -44,7 +44,7 @@ const simplifed = (nums) => {
   while (i < n) {
     pos = i;
     for (let j = i+1; j < n; j++) {
-      if (nums[i] < nums[i]) pos++;
+      if (nums[j] < nums[i]) pos++;
     }
 
     if (pos == i) {

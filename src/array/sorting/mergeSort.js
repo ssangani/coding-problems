@@ -12,7 +12,7 @@ const mergeSort = (nums) => {
 const sort = (nums, low, high) => {
   if (low >= high) return;
 
-  const mid = low + Math.floor((high - low) / 2);
+  const mid = Math.floor((low + high) / 2);
   sort(nums, low, mid);
   sort(nums, mid + 1, high);
   merge(nums, low, mid, high);

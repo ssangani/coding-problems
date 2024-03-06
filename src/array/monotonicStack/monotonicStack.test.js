@@ -1,6 +1,7 @@
 /* eslint no-undef: "off"*/
 const dailyTemperatures = require('./dailyTemperatures');
 const canSeePersonsCount = require('./canSeePersonsCount');
+const maxSlidingWindow = require('./maxSlidingWindow');
 
 describe.each([
   {
@@ -37,3 +38,22 @@ describe.each([
     expect(actual).toStrictEqual(expected);
   });
 });
+
+describe.each([
+  {
+    nums: [1,3,-1,-3,5,3,6,7],
+    target: 3,
+    expected: [3,3,5,5,6,7]
+  },
+  {
+    nums: [1],
+    target: 1,
+    expected: [1]
+  },
+])('maxSlidingWindow($nums, $target)', ({ nums, target, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = maxSlidingWindow(nums, target);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
