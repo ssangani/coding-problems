@@ -38,6 +38,11 @@ describe.each([
     needle: 'AAAB',
     expected: 13
   },
+  {
+    haystack: 'aabaaabaaac',
+    needle: 'aabaaac',
+    expected: 4
+  },
 ])('stringSearch($haystack, $needle)', ({ haystack, needle, expected }) => {
   test(`rabinKarp returns ${expected}`, () => {
     const actual = rabinKarp(haystack, needle);
