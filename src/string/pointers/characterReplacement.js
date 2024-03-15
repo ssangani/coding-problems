@@ -22,27 +22,37 @@
  * @return {number}
  */
 var characterReplacement = function(s, k) {
+  // Init frequency pointers
   const freq= [];
   for (let i = 0; i < 26; i++) freq[i] = 0;
 
-  let l = 0, maxFreq = 0, res = 0;
+  let l = 0, res = 0;
   const offset = 'A'.charCodeAt(0);
   for (let i = 0; i < s.length; i++) {
+    // Increment index for current char
     const idx = s.charCodeAt(i) - offset;
     freq[idx]++;
-
-    maxFreq = Math.max(maxFreq, freq[idx]);
-
+    // Find most amount of recurring characters
+    const maxFreq = getMaxFrequency(freq);
     const windowLen = i - l + 1;
-    if (windowLen - maxFreq > k) {
+    // If window needs at most k replacements
+    if (windowLen - maxFreq <= k) {
+      // Check if current window is longest one so far
+      res = Math.max(res, i - l + 1);
+    } else {
+      // Drop left most character out of window
       const leftIdx = s.charCodeAt(l) - offset;
       freq[leftIdx]--;
       l++;
     }
-
-    res = Math.max(res, i - l + 1);
   }
   return res;
+};
+
+const getMaxFrequency = (freq) => {
+  let maxFreq = freq[0];
+  for (let i = 1; i < 26; i++) maxFreq = Math.max(maxFreq, freq[i]);
+  return maxFreq;
 };
 
 module.exports = characterReplacement;

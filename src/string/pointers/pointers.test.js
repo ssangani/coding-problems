@@ -54,6 +54,16 @@ describe.each([
     k: 1,
     expected: 4
   },
+  {
+    s: 'AAAABBB',
+    k: 1,
+    expected: 5
+  },
+  {
+    s: 'AAAABBBAAAAA',
+    k: 1,
+    expected: 6
+  },
 ])('characterReplacement($s, $k)', ({ s, k, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = characterReplacement(s, k);
