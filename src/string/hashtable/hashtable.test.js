@@ -1,6 +1,7 @@
 /* eslint no-undef: "off"*/
 const isAnagram = require('./isAnagram');
 const findAnagrams = require('./findAnagrams');
+const groupAnagrams = require('./groupAnagrams');
 
 describe.each([
   {
@@ -34,6 +35,26 @@ describe.each([
 ])('findAnagrams($s, $t)', ({ s, t, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = findAnagrams(s, t);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    strs: ['eat','tea','tan','ate','nat','bat'],
+    expected: [['eat','tea','ate'],['tan', 'nat'],['bat']]
+  },
+  {
+    strs: [''],
+    expected: [['']]
+  },
+  {
+    strs: ['a'],
+    expected: [['a']]
+  },
+])('groupAnagrams($strs)', ({ strs, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = groupAnagrams(strs);
     expect(actual).toStrictEqual(expected);
   });
 });
