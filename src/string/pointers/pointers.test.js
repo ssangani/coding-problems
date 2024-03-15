@@ -1,5 +1,6 @@
 /* eslint no-undef: "off"*/
 const isPalindrome = require('./isPalindrome');
+const longestPalindrome = require('./longestPalindrome');
 
 describe.each([
   {
@@ -18,9 +19,25 @@ describe.each([
     s: '0P',
     expected: false
   },
-])('isPalindrome($s)', ({ s, t, expected }) => {
+])('isPalindrome($s)', ({ s, expected }) => {
   test(`returns ${expected}`, () => {
-    const actual = isPalindrome(s, t);
+    const actual = isPalindrome(s);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    s: 'babad',
+    expected: 'bab'
+  },
+  {
+    s: 'cbbd',
+    expected: 'bb'
+  },
+])('longestPalindrome($s)', ({ s, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = longestPalindrome(s);
     expect(actual).toBe(expected);
   });
 });
