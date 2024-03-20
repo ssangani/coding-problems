@@ -1,6 +1,7 @@
 /* eslint no-undef: "off"*/
 const generateParenthesis = require('./generateparanthesis');
 const combine = require('./combine');
+const subsets = require('./subsets');
 
 describe.each([
   {
@@ -43,6 +44,24 @@ describe.each([
 ])('combine($n, $k)', ({ n, k, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = combine(n, k);
+    actual.sort();
+    expected.sort();
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [1,2,3],
+    expected: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+  },
+  {
+    nums: [0],
+    expected: [[],[0]]
+  }
+])('subsets($nums)', ({ nums, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = subsets(nums);
     actual.sort();
     expected.sort();
     expect(actual).toStrictEqual(expected);
