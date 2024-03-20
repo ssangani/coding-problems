@@ -2,6 +2,7 @@
 const generateParenthesis = require('./generateparanthesis');
 const combine = require('./combine');
 const subsets = require('./subsets');
+const letterCombinations = require('./letterCombinations');
 
 describe.each([
   {
@@ -62,6 +63,28 @@ describe.each([
 ])('subsets($nums)', ({ nums, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = subsets(nums);
+    actual.sort();
+    expected.sort();
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    digits: '23',
+    expected: ['ad','ae','af','bd','be','bf','cd','ce','cf']
+  },
+  {
+    digits: '',
+    expected: []
+  },
+  {
+    digits: '2',
+    expected: ['a','b','c']
+  },
+])('letterCombinations($digits)', ({ digits, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = letterCombinations(digits);
     actual.sort();
     expected.sort();
     expect(actual).toStrictEqual(expected);
