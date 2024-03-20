@@ -1,8 +1,18 @@
 /**
+ * Given n pairs of parentheses, write a function to generate all
+ * combinations of well-formed parentheses.
+ * 
+ * Example 1:
+ * Input: n = 3
+ * Output: ["((()))","(()())","(())()","()(())","()()()"]
+ * 
+ * Example 2:
+ * Input: n = 1
+ * Output: ["()"]
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function(n) {
+const generateParenthesis = (n) => {
   const res = [];
   dfs(res, '', n, n);
   return res;
@@ -10,6 +20,7 @@ var generateParenthesis = function(n) {
 
 const OPEN = '(';
 const CLOSE = ')';
+
 const dfs = (res, acc, o, c) => {
   if (o === 0 && c === 0) {
     res.push(acc);
