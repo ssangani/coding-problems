@@ -23,7 +23,7 @@
  */
 var characterReplacement = function(s, k) {
   // Init frequency pointers
-  const freq= [];
+  const freq = [];
   for (let i = 0; i < 26; i++) freq[i] = 0;
 
   let l = 0, res = 0;
