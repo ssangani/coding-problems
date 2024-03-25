@@ -9,10 +9,12 @@ Generic techniques
 4. Merge sort
 5. Quick sort
 6. Heap sort
+7. Radix sort
 
 Special techniques for niche use cases
 1. Counting sort - when collection contains many duplicates, because of duplciates O(m) is constrained and time complexity becomes O(m+n).
 2. Cycle sort - it's write optimized because it makes fewest swaps. The best use of this algo is when array contains continuous range of elements (eg: 1 to N).
+3. Bucket sort - When distribution of elements is fairly uniform then sorting small sub-arrays and joining them requires fewer loops.
 
 ## Leveraging sorted data
 1. Using binary search requires O(logN)
