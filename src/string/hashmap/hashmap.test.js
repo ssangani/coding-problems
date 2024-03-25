@@ -2,6 +2,8 @@
 const isAnagram = require('./isAnagram');
 const findAnagrams = require('./findAnagrams');
 const groupAnagrams = require('./groupAnagrams');
+const characterReplacement = require('./characterReplacement');
+const ransomNote = require('./ransomNote');
 
 describe.each([
   {
@@ -56,5 +58,56 @@ describe.each([
   test(`returns ${expected}`, () => {
     const actual = groupAnagrams(strs);
     expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    s: 'ABAB',
+    k: 2,
+    expected: 4
+  },
+  {
+    s: 'AABABBA',
+    k: 1,
+    expected: 4
+  },
+  {
+    s: 'AAAABBB',
+    k: 1,
+    expected: 5
+  },
+  {
+    s: 'AAAABBBAAAAA',
+    k: 1,
+    expected: 6
+  },
+])('characterReplacement($s, $k)', ({ s, k, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = characterReplacement(s, k);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    note: 'a',
+    magazine: 'b',
+    expected: false
+  },
+  {
+    note: 'aa',
+    magazine: 'ab',
+    expected: false
+  },
+  {
+    note: 'aa',
+    magazine: 'aab',
+    expected: true
+  },
+])('canConstruct($note, $magazine)', ({ note, magazine, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = ransomNote.canConstruct(note, magazine);
+    expect(actual).toBe(expected);
   });
 });
