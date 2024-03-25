@@ -8,6 +8,7 @@ const countingSort = require('./countingSort');
 const cycleSort = require('./cycleSort');
 const radixSort = require('./radixSort');
 const bucketSort = require('./bucketSort');
+const heapSort = require('./heapSort');
 const sortContinuousRange = require('./sortContinuousRange');
 const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
@@ -74,6 +75,11 @@ describe.each([
 
   test(`bucketSort returns ${expected}`, () => {
     bucketSort(nums);
+    expect(nums).toStrictEqual(expected);
+  });
+
+  test(`heapSort returns ${expected}`, () => {
+    heapSort(nums);
     expect(nums).toStrictEqual(expected);
   });
 });
