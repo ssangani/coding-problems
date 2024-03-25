@@ -7,6 +7,7 @@ const quickSort = require('./quickSort');
 const countingSort = require('./countingSort');
 const cycleSort = require('./cycleSort');
 const radixSort = require('./radixSort');
+const bucketSort = require('./bucketSort');
 const sortContinuousRange = require('./sortContinuousRange');
 const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
@@ -68,6 +69,11 @@ describe.each([
 
   test(`radixSort returns ${expected}`, () => {
     radixSort(nums);
+    expect(nums).toStrictEqual(expected);
+  });
+
+  test(`bucketSort returns ${expected}`, () => {
+    bucketSort(nums);
     expect(nums).toStrictEqual(expected);
   });
 });
