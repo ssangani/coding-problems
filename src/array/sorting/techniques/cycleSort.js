@@ -39,6 +39,10 @@ const accepted = (nums) => {
 };
 
 const simplifed = (nums) => {
+  /**
+   * This algo cycles through the array to find the correct position
+   * of current element in the right sub-array
+   */
   const n = nums.length;
   let i = 0, pos;
   while (i < n) {

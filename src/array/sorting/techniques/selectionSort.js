@@ -4,15 +4,16 @@ const selectionSort = (nums) => {
    * find smallest element in right sub-array, swap, and repeat
    * process for each element until you reach end
    */
+  let minIndx;
   for (let i = 0; i < nums.length; i++) {
-    let min = i;
+    minIndx = i;
     for (let j = i + 1; j < nums.length; j++) {
-      if (nums[j] < nums[min]) {
-        min = j;
+      if (nums[j] < nums[minIndx]) {
+        minIndx = j;
       }
     }
 
-    [nums[i], nums[min]] = [nums[min], nums[i]];
+    [nums[i], nums[minIndx]] = [nums[minIndx], nums[i]];
   }
 };
 
