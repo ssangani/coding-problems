@@ -11,22 +11,21 @@ const sort = (nums, low, high) => {
 };
 
 const partition = (nums, low, high) => {
-  let i = low - 1;
+  let left = low;
   // Choose last element as pivot
   const pivot = nums[high];
   // Push elements smaller than pivot to left subarray
-  for (let j = low; j < high; j++) {
-    if (nums[j] < pivot) {
-      i++;
-      [nums[i], nums[j]] = [nums[j], nums[i]];
+  for (let i = low; i < high; i++) {
+    if (nums[i] < pivot) {
+      [nums[left], nums[i]] = [nums[i], nums[left]];
+      left++;
     }
   }
   // Swap pivot and end of left subarray
-  i++;
-  nums[high] = nums[i];
-  nums[i] = pivot;
+  nums[high] = nums[left];
+  nums[left] = pivot;
   // Return pviot position
-  return i;
+  return left;
 };
 
 module.exports = quickSort;

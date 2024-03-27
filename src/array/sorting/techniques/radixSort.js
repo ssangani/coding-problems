@@ -1,7 +1,7 @@
 const radixSort = (nums, radix = 10) => {
   const max = getMax(nums);
   const maxDigits = Math.floor(Math.log(max, radix) + 1);
-  for (let digit = 1; digit <= maxDigits; digit++) {
+  for (let digit = 0; digit <= maxDigits; digit++) {
     sort(nums, digit, radix);
   }
 };
@@ -36,7 +36,7 @@ const sort = (nums, digit, radix) => {
 };
 
 const getSignificantDigit = (num, digit, radix) =>
-  Math.floor(num / (radix ** digit)) % radix;
+  Math.floor(num / radix**digit) % radix;
 
 const getMax = (nums) => {
   let max = nums[0];

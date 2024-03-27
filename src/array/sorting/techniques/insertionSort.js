@@ -5,10 +5,8 @@ const insertionSort = (nums) => {
    * item is smaller than current element, and then repeat for next item
    */
   for (let i = 1; i < nums.length; i++) {
-    let j = i;
-    while (j > 0 && nums[j-1]>nums[j]) {
+    for (let j = i; j > 0 && nums[j-1] > nums[j]; j--) {
       [nums[j-1], nums[j]] = [nums[j], nums[j-1]];
-      j--;
     }
   }
 };
