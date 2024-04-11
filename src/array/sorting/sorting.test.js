@@ -6,6 +6,7 @@ const firstMissingPositive = require('./firstMissingPositive');
 const hIndex = require('./hIndex');
 const binarySearch = require('./binarySearch');
 const kthSmallestInSortedMatrix = require('./kthSmallestInSortedMatrix');
+const searchInSortedMatrix = require('./searchInSortedMatrix');
 
 describe.each([
   {
@@ -148,6 +149,24 @@ describe.each([
 ])('kthSmallestInSortedMatrix($matrix, $k)', ({ matrix, k, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = kthSmallestInSortedMatrix(matrix, k);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    matrix: [[1,3,5,7],[10,11,16,20],[23,30,34,60]],
+    k: 3,
+    expected: true
+  },
+  {
+    matrix: [[1,3,5,7],[10,11,16,20],[23,30,34,60]],
+    k: 13,
+    expected: false
+  }
+])('searchInSortedMatrix($matrix, $k)', ({ matrix, k, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = searchInSortedMatrix(matrix, k);
     expect(actual).toBe(expected);
   });
 });

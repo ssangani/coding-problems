@@ -19,7 +19,7 @@
  * @param {number} k
  * @return {number}
  */
-var kthSmallestInSortedMatrix = function(matrix, k) {
+const kthSmallestInSortedMatrix = (matrix, k) => {
   const n = matrix.length;
   let small = matrix[0][0],
     large = matrix[n-1][n-1];
