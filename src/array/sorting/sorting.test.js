@@ -4,6 +4,7 @@ const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
 const firstMissingPositive = require('./firstMissingPositive');
 const hIndex = require('./hIndex');
+const binarySearch = require('./binarySearch');
 
 describe.each([
   {
@@ -69,7 +70,7 @@ describe.each([
 ])('eraseOverlapIntervals($intervals)', ({ intervals, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = eraseOverlapIntervals(intervals);
-    expect(actual).toStrictEqual(expected);
+    expect(actual).toBe(expected);
   });
 });
 
@@ -89,7 +90,7 @@ describe.each([
 ])('firstMissingPositive($nums)', ({ nums, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = firstMissingPositive(nums);
-    expect(actual).toStrictEqual(expected);
+    expect(actual).toBe(expected);
   });
 });
 
@@ -105,6 +106,24 @@ describe.each([
 ])('hIndex($citations)', ({ citations, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = hIndex(citations);
-    expect(actual).toStrictEqual(expected);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [-1,0,3,5,9,12],
+    target: 9,
+    expected: 4
+  },
+  {
+    nums: [-1,0,3,5,9,12],
+    target: 2,
+    expected: -1
+  }
+])('binarySearch($nums, $target)', ({ nums, target, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = binarySearch(nums, target);
+    expect(actual).toBe(expected);
   });
 });
