@@ -3,6 +3,7 @@ const sortContinuousRange = require('./sortContinuousRange');
 const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
 const firstMissingPositive = require('./firstMissingPositive');
+const hIndex = require('./hIndex');
 
 describe.each([
   {
@@ -88,6 +89,22 @@ describe.each([
 ])('firstMissingPositive($nums)', ({ nums, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = firstMissingPositive(nums);
+    expect(actual).toStrictEqual(expected);
+  });
+});
+
+describe.each([
+  {
+    citations: [3,0,6,1,5],
+    expected: 3
+  },
+  {
+    citations: [1,3,1],
+    expected: 1
+  }
+])('hIndex($citations)', ({ citations, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = hIndex(citations);
     expect(actual).toStrictEqual(expected);
   });
 });
