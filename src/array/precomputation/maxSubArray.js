@@ -23,7 +23,7 @@ const maxSubArray = (nums) => {
   // Also see Kadane's algo
   if (nums.length < 1) return 0;
 
-  let max = -Number.MAX_VALUE,
+  let max = Number.MIN_SAFE_INTEGER,
     sum = 0;
 
   for (let i = 0; i < nums.length; i++) {

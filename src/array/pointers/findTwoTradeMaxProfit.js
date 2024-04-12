@@ -10,14 +10,14 @@
  * @returns {number}
  */
 const findTwoTradeMaxProfit = (prices) => {
-  let maxProfit = 0, minPrice = Number.MAX_VALUE;
+  let maxProfit = 0, minPrice = Number.MAX_SAFE_INTEGER;
   let oneDayProfits = [];
   for (let i = 0; i < prices.length; i++) {
     minPrice = Math.min(minPrice, prices[i]);
     oneDayProfits[i] = Math.max(maxProfit, prices[i] - minPrice);
   }
 
-  let maxPrice = Number.MIN_VALUE;
+  let maxPrice = Number.MIN_SAFE_INTEGER;
   for (let i = prices.length - 1; i > 0; i--) {
     maxPrice = Math.max(maxPrice, prices[i]);
     maxProfit = Math.max(maxProfit, oneDayProfits[i - 1] + maxPrice - prices[i]);

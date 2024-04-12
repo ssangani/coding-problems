@@ -37,7 +37,7 @@ const minWindow = (s, t) => {
 
   let start = 0,
     minStart = 0,
-    minLen = Number.MAX_VALUE,
+    minLen = Number.MAX_SAFE_INTEGER,
     counter = t.length,
     cursor = 0;
 
@@ -71,7 +71,7 @@ const minWindow = (s, t) => {
     cursor++;
   }
 
-  return minLen == Number.MAX_VALUE
+  return minLen == Number.MAX_SAFE_INTEGER
     ? ''
     : s.substring(minStart, minStart + minLen);
 };
