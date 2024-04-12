@@ -23,7 +23,7 @@ const minSubArrayLen = (target, nums) => {
   let start = 0,
     cursor = 0,
     sum = 0,
-    minLen = Number.MAX_VALUE;
+    minLen = Number.MAX_SAFE_INTEGER;
 
   while (cursor < nums.length) {
     sum += nums[cursor];
@@ -39,7 +39,7 @@ const minSubArrayLen = (target, nums) => {
     cursor++;
   }
 
-  return minLen == Number.MAX_VALUE ? 0 : minLen;
+  return minLen == Number.MAX_SAFE_INTEGER ? 0 : minLen;
 };
 
 module.exports = minSubArrayLen;

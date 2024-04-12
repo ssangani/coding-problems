@@ -42,7 +42,7 @@ const canSeePersonsCount = (heights) => {
   /*
   let max, count;
   for (let i = 0; i < n; i++) {
-    max = Number.MIN_VALUE;
+    max = Number.MIN_SAFE_INTEGER;
     count = 0;
     for (let j = i + 1; j < n && max < heights[i]; j++) {
       if (heights[j] > max) {

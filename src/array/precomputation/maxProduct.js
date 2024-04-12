@@ -37,7 +37,7 @@ const optimized = (nums) => {
 const simplified = (nums) => {
   const n = nums.length;
   let prod = 1,
-    max = -Number.MAX_VALUE;
+    max = Number.MIN_SAFE_INTEGER;
   for (let i = 0; i < n; i++) {
     prod *= nums[i];
     max = Math.max(max, prod);

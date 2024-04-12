@@ -6,7 +6,7 @@
 const sortContinuousRange = (nums) => {
   // Because we know array elements are continuous range
   // we can easily predict correct position for each element
-  let min = Number.MAX_VALUE;
+  let min = Number.MAX_SAFE_INTEGER;
   for (let i = 0; i < nums.length; i++) {
     min = Math.min(min, nums[i]);
   }

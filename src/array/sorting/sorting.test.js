@@ -3,6 +3,8 @@ const sortContinuousRange = require('./sortContinuousRange');
 const mergeIntervals = require('./mergeIntervals');
 const eraseOverlapIntervals = require('./eraseOverlappingIntervals');
 const firstMissingPositive = require('./firstMissingPositive');
+const hIndex = require('./hIndex');
+const findKthLargest = require('./findKthLargest');
 
 describe.each([
   {
@@ -68,7 +70,7 @@ describe.each([
 ])('eraseOverlapIntervals($intervals)', ({ intervals, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = eraseOverlapIntervals(intervals);
-    expect(actual).toStrictEqual(expected);
+    expect(actual).toBe(expected);
   });
 });
 
@@ -88,6 +90,40 @@ describe.each([
 ])('firstMissingPositive($nums)', ({ nums, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = firstMissingPositive(nums);
-    expect(actual).toStrictEqual(expected);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    citations: [3,0,6,1,5],
+    expected: 3
+  },
+  {
+    citations: [1,3,1],
+    expected: 1
+  }
+])('hIndex($citations)', ({ citations, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = hIndex(citations);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [3,2,1,5,6,4],
+    k: 2,
+    expected: 5
+  },
+  {
+    nums: [3,2,3,1,2,4,5,5,6],
+    k: 4,
+    expected: 4
+  }
+])('findKthLargest($nums, $k)', ({ nums, k, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = findKthLargest(nums, k);
+    expect(actual).toBe(expected);
   });
 });
