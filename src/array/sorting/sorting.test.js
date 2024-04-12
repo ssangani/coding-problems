@@ -7,6 +7,7 @@ const hIndex = require('./hIndex');
 const binarySearch = require('./binarySearch');
 const kthSmallestInSortedMatrix = require('./kthSmallestInSortedMatrix');
 const searchInSortedMatrix = require('./searchInSortedMatrix');
+const findKthLargest = require('./findKthLargest');
 
 describe.each([
   {
@@ -167,6 +168,24 @@ describe.each([
 ])('searchInSortedMatrix($matrix, $k)', ({ matrix, k, expected }) => {
   test(`returns ${expected}`, () => {
     const actual = searchInSortedMatrix(matrix, k);
+    expect(actual).toBe(expected);
+  });
+});
+
+describe.each([
+  {
+    nums: [3,2,1,5,6,4],
+    k: 2,
+    expected: 5
+  },
+  {
+    nums: [3,2,3,1,2,4,5,5,6],
+    k: 4,
+    expected: 4
+  }
+])('findKthLargest($nums, $k)', ({ nums, k, expected }) => {
+  test(`returns ${expected}`, () => {
+    const actual = findKthLargest(nums, k);
     expect(actual).toBe(expected);
   });
 });
